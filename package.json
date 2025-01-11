@@ -4,7 +4,8 @@
     "main": "index.js",
     "scripts": {
         "dev": "tsx --watch --env-file .env server.ts",
-        "build": "tsup server.ts --out-dir build"
+        "build": "tsup server.ts --out-dir build",
+        "start": "node build/sever.ts"
     },
     "keywords": [],
     "author": "",
