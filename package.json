@@ -5,7 +5,7 @@
     "scripts": {
         "dev": "tsx --watch --env-file .env server.ts",
         "build": "tsup server.ts --out-dir build",
-        "start": "node build/sever.ts"
+        "start": "node build/server.js"
     },
     "keywords": [],
     "author": "",
