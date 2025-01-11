@@ -1,3 +1,4 @@
+import 'express-async-errors'
 import express from 'express'
 import z from 'zod'
 import { env } from './env'
@@ -11,10 +12,10 @@ app.post('/add', async (req, res) => {
     const requestBodySchema = z.object({
         id: z.number(),
         titulo: z.string(),
-        coletada: z.string(),
+        link: z.string(),
     })
 
-    const { id, titulo, coletada } = requestBodySchema.parse(req.body)
+    const { id, titulo, link } = requestBodySchema.parse(req.body)
 
     const url = 'https://api.notion.com/v1/pages'
     const data = {
@@ -34,9 +35,22 @@ app.post('/add', async (req, res) => {
                     },
                 ],
             },
-            coletada: {
-                date: {
-                    start: coletada,
+            link: {
+                rich_text: [
+                    {
+                        text: {
+                            content: link,
+                        },
+                    },
+                ],
+            },
+            status: {
+                id: 'pQ%3F%3B',
+                type: 'status',
+                status: {
+                    id: 'ee4088b3-4e91-4d89-8d86-1e2625a8b7ff',
+                    name: 'Not started',
+                    color: 'default',
                 },
             },
         },
