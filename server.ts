@@ -36,13 +36,8 @@ app.post('/add', async (req, res) => {
                 ],
             },
             link: {
-                rich_text: [
-                    {
-                        text: {
-                            content: link,
-                        },
-                    },
-                ],
+                type: 'url',
+                url: link,
             },
             status: {
                 id: 'pQ%3F%3B',
